@@ -137,9 +137,22 @@ class Blocks extends React.Component {
             workspaceConfig
         );
         this.workspace.registerToolboxCategoryCallback(
+            "VARIABLE",
+            this.ScratchBlocks.ScratchVariables.getVariablesCategory
+        );
+        this.workspace.registerToolboxCategoryCallback(
             "PROCEDURE",
             this.ScratchBlocks.ScratchProcedures.getProceduresCategory
         );
+        this.workspace.addChangeListener((event) => {
+            if (
+                event.type === this.ScratchBlocks.Events.VAR_CREATE ||
+                event.type === this.ScratchBlocks.Events.VAR_RENAME ||
+                event.type === this.ScratchBlocks.Events.VAR_DELETE
+            ) {
+                this.requestToolboxUpdate();
+            }
+        });
 
         // Register buttons under new callback keys for creating variables,
         // lists, and procedures from extensions.
@@ -147,7 +160,7 @@ class Blocks extends React.Component {
         const toolboxWorkspace = this.workspace.getFlyout().getWorkspace();
 
         const varListButtonCallback = (type) => () =>
-            this.ScratchBlocks.Variables.createVariable(
+            this.ScratchBlocks.ScratchVariables.createVariable(
                 this.workspace,
                 null,
                 type
