@@ -177,19 +177,13 @@ export default function (vm, useCatBlocks) {
     ScratchBlocks.Blocks.sound_sounds_menu.init = function () {
         const json = jsonForMenuBlock("SOUND_MENU", soundsMenu, "sounds", []);
         this.jsonInit(json);
-        this.inputList[0].removeField("SOUND_MENU");
-        const dropdown = ScratchBlocks.fieldRegistry.fromJson({
-            type: "field_dropdown",
-            options: soundsMenu(),
-        });
-        dropdown.setValidator((newValue) => {
+        this.getField("SOUND_MENU").setValidator((newValue) => {
             if (newValue === "SOUND_RECORD") {
                 ScratchBlocks.recordSoundCallback();
                 return null;
             }
             return newValue;
         });
-        this.inputList[0].appendField(dropdown, "SOUND_MENU");
     };
 
     ScratchBlocks.Blocks.looks_costume.init = function () {
