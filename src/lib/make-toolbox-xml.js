@@ -16,9 +16,9 @@ const motion = function (isInitialSetup, isStage, targetId, colors) {
     <category name="${ScratchBlocks.ScratchMsgs.translate(
         "CATEGORY_MOTION",
         "Motion"
-    )}" toolboxitemid="motion" colour="${colors.primary}" secondaryColour="${
-        colors.tertiary
-    }">
+    )}" toolboxitemid="motion" colour="${
+        colors.colourPrimary
+    }" secondaryColour="${colors.colourTertiary}">
         ${
             isStage
                 ? `
@@ -182,9 +182,9 @@ const looks = function (
     <category name="${ScratchBlocks.ScratchMsgs.translate(
         "CATEGORY_LOOKS",
         "Looks"
-    )}" toolboxitemid="looks" colour="${colors.primary}" secondaryColour="${
-        colors.tertiary
-    }">
+    )}" toolboxitemid="looks" colour="${
+        colors.colourPrimary
+    }" secondaryColour="${colors.colourTertiary}">
         ${
             isStage
                 ? ""
@@ -339,9 +339,9 @@ const sound = function (isInitialSetup, isStage, targetId, soundName, colors) {
     <category name="${ScratchBlocks.ScratchMsgs.translate(
         "CATEGORY_SOUND",
         "Sound"
-    )}" toolboxitemid="sound" colour="${colors.primary}" secondaryColour="${
-        colors.tertiary
-    }">
+    )}" toolboxitemid="sound" colour="${
+        colors.colourPrimary
+    }" secondaryColour="${colors.colourTertiary}">
         <block id="${targetId}_sound_playuntildone" type="sound_playuntildone">
             <value name="SOUND_MENU">
                 <shadow type="sound_sounds_menu">
@@ -400,9 +400,9 @@ const events = function (isInitialSetup, isStage, targetId, colors) {
     <category name="${ScratchBlocks.ScratchMsgs.translate(
         "CATEGORY_EVENTS",
         "Events"
-    )}" toolboxitemid="events" colour="${colors.primary}" secondaryColour="${
-        colors.tertiary
-    }">
+    )}" toolboxitemid="events" colour="${
+        colors.colourPrimary
+    }" secondaryColour="${colors.colourTertiary}">
         <block type="event_whenflagclicked"/>
         <block type="event_whenkeypressed">
         </block>
@@ -452,8 +452,8 @@ const control = function (isInitialSetup, isStage, targetId, colors) {
             "Control"
         )}"
         toolboxitemid="control"
-        colour="${colors.primary}"
-        secondaryColour="${colors.tertiary}">
+        colour="${colors.colourPrimary}"
+        secondaryColour="${colors.colourTertiary}">
         <block type="control_wait">
             <value name="DURATION">
                 <shadow type="math_positive_number">
@@ -515,8 +515,8 @@ const sensing = function (isInitialSetup, isStage, targetId, colors) {
             "Sensing"
         )}"
         toolboxitemid="sensing"
-        colour="${colors.primary}"
-        secondaryColour="${colors.tertiary}">
+        colour="${colors.colourPrimary}"
+        secondaryColour="${colors.colourTertiary}">
         ${
             isStage
                 ? ""
@@ -621,8 +621,8 @@ const operators = function (isInitialSetup, isStage, targetId, colors) {
             "Operators"
         )}"
         toolboxitemid="operators"
-        colour="${colors.primary}"
-        secondaryColour="${colors.tertiary}">
+        colour="${colors.colourPrimary}"
+        secondaryColour="${colors.colourTertiary}">
         <block type="operator_add">
             <value name="NUM1">
                 <shadow type="math_number">
@@ -817,8 +817,8 @@ const variables = function (isInitialSetup, isStage, targetId, colors) {
             "Variables"
         )}"
         toolboxitemid="variables"
-        colour="${colors.primary}"
-        secondaryColour="${colors.tertiary}"
+        colour="${colors.colourPrimary}"
+        secondaryColour="${colors.colourTertiary}"
         custom="VARIABLE">
     </category>
     `;
@@ -833,8 +833,8 @@ const myBlocks = function (isInitialSetup, isStage, targetId, colors) {
             "My Blocks"
         )}"
         toolboxitemid="myBlocks"
-        colour="${colors.primary}"
-        secondaryColour="${colors.tertiary}"
+        colour="${colors.colourPrimary}"
+        secondaryColour="${colors.colourTertiary}"
         custom="PROCEDURE">
     </category>
     `;

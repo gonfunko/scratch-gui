@@ -36,11 +36,14 @@ const injectExtensionCategoryTheme = (dynamicBlockXML, theme) => {
     return dynamicBlockXML.map((extension) => {
         const dom = parser.parseFromString(extension.xml, "text/xml");
 
-        dom.documentElement.setAttribute("colour", extensionColors.primary);
+        dom.documentElement.setAttribute(
+            "colour",
+            extensionColors.colourPrimary
+        );
         // Note: the category's secondaryColour matches up with the blocks' tertiary color, both used for border color.
         dom.documentElement.setAttribute(
             "secondaryColour",
-            extensionColors.tertiary
+            extensionColors.colourTertiary
         );
 
         const categoryIconURI = getCategoryIconURI(
@@ -57,7 +60,10 @@ const injectExtensionCategoryTheme = (dynamicBlockXML, theme) => {
     });
 };
 
-const injectBlockIcons = (blockInfoJson, theme) => {
+const injectExtensionBlockIcons = (blockInfoJson, theme) => {
+    // Don't do any manipulation for the default theme
+    if (theme === DEFAULT_THEME) return blockInfoJson;
+
     // Block icons are the first element of `args0`
     if (
         !blockInfoJson.args0 ||
@@ -88,26 +94,8 @@ const injectBlockIcons = (blockInfoJson, theme) => {
     };
 };
 
-/**
- * Applies extension color theme to static block json.
- * No changes are applied if called with the default theme, allowing extensions to provide their own colors.
- * @param {object} blockInfoJson - Static block json
- * @param {string} theme - Theme name
- * @returns {object} Block info json with updated colors. The original blockInfoJson is not modified.
- */
-const injectExtensionBlockTheme = (blockInfoJson, theme) => {
-    // Don't do any manipulation for the default theme
-    if (theme === DEFAULT_THEME) return blockInfoJson;
-
-    const extensionColors = getExtensionColors(theme);
-
-    return {
-        ...injectBlockIcons(blockInfoJson, theme),
-        colour: extensionColors.primary,
-        colourSecondary: extensionColors.secondary,
-        colourTertiary: extensionColors.tertiary,
-        colourQuaternary: extensionColors.quaternary,
-    };
+export {
+    injectExtensionBlockIcons,
+    injectExtensionCategoryTheme,
+    getExtensionColors,
 };
-
-export { injectExtensionBlockTheme, injectExtensionCategoryTheme };
