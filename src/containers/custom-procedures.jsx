@@ -3,6 +3,7 @@ import defaultsDeep from "lodash.defaultsdeep";
 import PropTypes from "prop-types";
 import React from "react";
 import CustomProceduresComponent from "../components/custom-procedures/custom-procedures.jsx";
+import { getColorsForTheme, themeMap } from "../lib/themes";
 import { ScratchBlocks } from "scratch-blocks";
 import { connect } from "react-redux";
 
@@ -38,12 +39,11 @@ class CustomProcedures extends React.Component {
             { rtl: this.props.isRtl }
         );
 
-        const theme = ScratchBlocks.Theme.defineTheme("Scratch", {
-            base: ScratchBlocks.Themes.Zelos,
-            startHats: true,
-        });
+        const theme = new ScratchBlocks.Theme(
+            this.props.theme,
+            getColorsForTheme(this.props.theme)
+        );
         workspaceConfig.theme = theme;
-        workspaceConfig.renderer = "zelos";
         this.workspace = ScratchBlocks.inject(this.blocks, workspaceConfig);
 
         // Create the procedure declaration block for editing the mutation.
@@ -171,6 +171,7 @@ CustomProcedures.propTypes = {
     isRtl: PropTypes.bool,
     mutator: PropTypes.instanceOf(Element),
     onRequestClose: PropTypes.func.isRequired,
+    theme: PropTypes.oneOf(Object.keys(themeMap)),
     options: PropTypes.shape({
         media: PropTypes.string,
         zoom: PropTypes.shape({
