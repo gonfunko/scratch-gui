@@ -36,6 +36,8 @@ const injectExtensionCategoryTheme = (dynamicBlockXML, theme) => {
     return dynamicBlockXML.map((extension) => {
         const dom = parser.parseFromString(extension.xml, "text/xml");
 
+        // This element is deserialized by Blockly, which uses the UK spelling
+        // of "colour".
         dom.documentElement.setAttribute(
             "colour",
             extensionColors.colourPrimary

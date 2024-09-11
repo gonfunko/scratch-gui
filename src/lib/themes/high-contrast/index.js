@@ -4,6 +4,8 @@ import text2speechIcon from "./extensions/text2speechIcon.svg";
 import translateIcon from "./extensions/translateIcon.svg";
 import videoSensingIcon from "./extensions/videoSensingIcon.svg";
 
+// This object is passed directly to Blockly, hence the colour* fields need to
+// be named exactly as they are, including the UK spelling of "colour".
 const blockColors = {
     motion: {
         colourPrimary: "#80B5FF",

@@ -1,3 +1,5 @@
+// This object is passed directly to Blockly, hence the colour* fields need to
+// be named exactly as they are, including the UK spelling of "colour".
 const blockColors = {
     motion: {
         colourPrimary: "#4C97FF",

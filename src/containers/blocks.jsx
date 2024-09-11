@@ -621,6 +621,9 @@ class Blocks extends React.Component {
         );
         defineBlocks(categoryInfo.menus);
         defineBlocks(categoryInfo.blocks);
+        // Note that Blockly uses the UK spelling of "colour", so fields that
+        // interact directly with Blockly follow that convention, while Scratch
+        // code uses the US spelling of "color".
         let colourPrimary = categoryInfo.color1;
         let colourSecondary = categoryInfo.color2;
         let colourTertiary = categoryInfo.color3;

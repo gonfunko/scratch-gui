@@ -18,7 +18,10 @@ import { getColorsForTheme } from "../../lib/themes/index.js";
 
 import styles from "./monitor.css";
 
-// Map category name to color name used in scratch-blocks Blockly.Colours
+// Map category name to color name used in scratch-blocks Blockly.Colours. Note
+// that Blockly uses the UK spelling of "colour", so fields that interact
+// directly with Blockly follow that convention, while Scratch code uses the US
+// spelling of "color".
 const categoryColorMap = {
     data: "data",
     sensing: "sensing",

@@ -11,7 +11,9 @@ const motion = function (isInitialSetup, isStage, targetId, colors) {
         "MOTION_STAGE_SELECTED",
         "Stage selected: no motion blocks"
     );
-    // Note: the category's secondaryColour matches up with the blocks' tertiary color, both used for border color.
+    // Note: the category's secondaryColour matches up with the blocks' tertiary
+    // color, both used for border color. Since Blockly uses the UK spelling of
+    // "colour", certain attributes are named accordingly.
     return `
     <category name="${ScratchBlocks.ScratchMsgs.translate(
         "CATEGORY_MOTION",
