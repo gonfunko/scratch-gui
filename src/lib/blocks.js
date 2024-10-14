@@ -356,8 +356,6 @@ export default function (vm, useCatBlocks) {
         };
 
         const json = jsonForSensingMenus(menuFn);
-        json["extensions"].push("output_string");
-        console.log(json);
         this.jsonInit(json);
     };
 
